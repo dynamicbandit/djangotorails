@@ -240,7 +240,7 @@ module Djangotorails
           associations[:belongs_to] ||= {}
           options = {}
           if field[:arguments][:unnamed].length == 1
-            class_name = field[:arguments][:unnamed][0]
+            class_name = field[:arguments][:unnamed][0].spit('.').last
             if tableize(field[:name]) != tableize(class_name)
               options[:class_name] = "\"#{class_name}\""
             end
