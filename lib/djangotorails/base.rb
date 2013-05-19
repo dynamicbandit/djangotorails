@@ -202,6 +202,7 @@ module Djangotorails
       end
 
       if django_field[:arguments][:named][:null] != "True" && django_field[:arguments][:named][:blank] != "True"
+        @messages << "#{django_model[:name]}#{django_field[:name]} NAMED: #{django_field[:arguments][:named]}"
         rails_field[:arguments][:null] = false
       end
 
