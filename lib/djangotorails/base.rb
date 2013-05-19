@@ -201,7 +201,7 @@ module Djangotorails
         end
       end
 
-      if django_field[:arguments][:named][:null] != "True" && unless django_field[:arguments][:named][:blank] != "True"
+      if django_field[:arguments][:named][:null] != "True" && django_field[:arguments][:named][:blank] != "True"
         rails_field[:arguments][:null] = false
       end
 
