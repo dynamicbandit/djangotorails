@@ -202,7 +202,6 @@ module Djangotorails
       end
 
       if django_field[:arguments][:named][:null] != "True" && django_field[:arguments][:named][:blank] != "True"
-        @messages << "#{django_model[:name]}#{django_field[:name]} NAMED: #{django_field[:arguments][:named]}"
         rails_field[:arguments][:null] = false
       end
 
@@ -341,7 +340,7 @@ EOF
     end
 
     def get_fields_from_class_definition(class_definition)
-      field_matches = class_definition.scan(/([\w]+) = models.([\w]+)\(([\w\s_=,'"]*)/)
+      field_matches = class_definition.scan(/([\w]+) = models.([\w]+)\(([\w\s_=,'".]*)/)
       fields = []
       field_matches.each do |field_match|
         field = {
