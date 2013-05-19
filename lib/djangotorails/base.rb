@@ -200,6 +200,11 @@ module Djangotorails
           rails_field[:arguments][:null] = false
         end
       end
+
+      unless django_field[:arguments][:named][:null].presence == "True"
+        rails_field[:arguments][:null] = false
+      end
+
       if django_field[:arguments][:named].has_key?(:unique)
         rails_field[:is_unique] = convert_django_argument_string_to_rails_value(django_field[:arguments][:named][:unique])
       end
