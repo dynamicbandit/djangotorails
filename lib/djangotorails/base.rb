@@ -205,8 +205,8 @@ module Djangotorails
         rails_field[:arguments][:null] = false
       end
 
-      if django_field[:arguments][:named][:blank] == "True"
-        rails_field[:arguments][:default] = ''
+      if django_field[:arguments][:named][:blank] == "True" && [:text, :string].include?(rails_field[:type])
+        rails_field[:arguments][:default] = "\'\'"
       end
 
       if django_field[:arguments][:named].has_key?(:unique)
