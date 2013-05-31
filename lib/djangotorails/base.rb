@@ -137,6 +137,9 @@ module Djangotorails
         when "FilePathField"
           rails_field[:type] = :string
           @messages << "#{django_model[:name]}##{django_field[:name]} is a FilePathField, which may need to be accounted for in the model."
+        when "ImageField"
+          rails_field[:type] = :string
+          @messages << "#{django_model[:name]}##{django_field[:name]} is a ImageField, which may need to be accounted for in the model."          
         when "FloatField"
           rails_field[:type] = :float
         when "GenericIPAddressField"
